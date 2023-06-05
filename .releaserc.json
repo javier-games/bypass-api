@@ -1,0 +1,73 @@
+{
+  "tagFormat": "${version}",
+  "branches": [
+    "main",
+    {
+      "name": "develop",
+      "prerelease": "dev"
+    }
+  ],
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "releaseRules": [
+          {
+            "type": "added",
+            "release": "minor"
+          },
+          {
+            "type": "changed",
+            "release": "patch"
+          },
+          {
+            "type": "updated",
+            "release": "patch"
+          },
+          {
+            "type": "fixed",
+            "release": "patch"
+          }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            {"type": "added", "section": ":sparkles: Added", "hidden": false},
+            {"type": "changed", "section": ":hammer: Changed", "hidden": false},
+            {"type": "updated", "section": ":hammer: Changed", "hidden": false},
+            {"type": "fixed", "section": ":tools: Fixed", "hidden": false},
+            {"type": "docs", "hidden": true},
+            {"type": "ci", "hidden": true}
+          ]
+        }
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "verifyReleaseCmd": "echo ${nextRelease.version} > .VERSION"
+      }
+    ],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          ".VERSION",
+          "Bypass API.xcodeproj/project.pbxproj"
+        ]
+      }
+    ]
+  ]
+}
