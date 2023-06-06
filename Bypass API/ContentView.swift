@@ -69,13 +69,13 @@ struct RequestView: View {
     
     @State private var name: String = ""
     @State private var url: String = ""
-    @State private var httpMethod: HTTPMethod = HTTPMethod.POST
+    @State private var httpMethod: HTTPMethod = HTTPMethod.GET
     
     @State private var urlParameters: [KeyValuePair] = []
     
     @State private var headers: [KeyValuePair] = []
     
-    @State private var bodyType: BodyType = BodyType.FORM_DATA
+    @State private var bodyType: BodyType = BodyType.NONE
     @State private var formData: [KeyValuePair] = []
     @State private var rawBody: String = ""
     
@@ -94,20 +94,19 @@ struct RequestView: View {
                     }
                 }
                 
-                
-                Section{
-                    ForEach(urlParameters.indices, id: \.self) {
-                        index in HStack {
-                            TextField("Key", text: $urlParameters[index].key)
-                            TextField("Value", text: $urlParameters[index].value)
-                        }
-                    }
-                    Button(action: {urlParameters.append(KeyValuePair())}) {
-                        Label("Add", systemImage: "plus")
-                    }
-                } header: {
-                    Text("URL Parameters")
-                }
+//                Section{
+//                    ForEach(urlParameters.indices, id: \.self) {
+//                        index in HStack {
+//                            TextField("Key", text: $urlParameters[index].key)
+//                            TextField("Value", text: $urlParameters[index].value)
+//                        }
+//                    }
+//                    Button(action: {urlParameters.append(KeyValuePair())}) {
+//                        Label("Add", systemImage: "plus")
+//                    }
+//                } header: {
+//                    Text("URL Parameters")
+//                }
                 
                 Section{
                     ForEach(headers.indices, id: \.self) {
