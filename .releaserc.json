@@ -64,7 +64,7 @@
     [
       "@semantic-release/changelog",
       {
-        "changelogFile": "CHANGELOG.md"
+        "changelogFile": "CHANGELOG.md" 
       }
     ],
     [
@@ -73,7 +73,8 @@
         "assets": [
           "CHANGELOG.md",
           ".VERSION",
-          "Bypass API.xcodeproj/project.pbxproj"
+          "Bypass API.xcodeproj/project.pbxproj",
+          "TestFlight/WhatToTest.en-US.txt"
         ]
       }
     ]

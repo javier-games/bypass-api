@@ -33,9 +33,9 @@ jobs:
 
       - name: Set Version
         run: |
-          semantic-release -d --no-ci
+          semantic-release -d --no-ci > TestFlight/WhatToTest.en-US.txt
+          sed -i '/^\[/d' TestFlight/WhatToTest.en-US.txt
           VERSION=$(cat .VERSION)
-          echo "The Version is $(cat .VERSION)"
           PROJECT_FILE="Bypass API.xcodeproj/project.pbxproj"
           sed -i '/Debug \*\/ = {/,/};/s/MARKETING_VERSION = [0-9]*\.[0-9]*\.[0-9]*/MARKETING_VERSION = '"$VERSION"'/g' "$PROJECT_FILE"
           sed -i '/Release \*\/ = {/,/};/s/MARKETING_VERSION = [0-9]*\.[0-9]*\.[0-9]*/MARKETING_VERSION = '"$VERSION"'/g' "$PROJECT_FILE"

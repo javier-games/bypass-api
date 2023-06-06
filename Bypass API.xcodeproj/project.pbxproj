@@ -102,6 +102,7 @@
 		F455C63E2A1E4589001B6B0E /* Bypass API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bypass API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F455C6432A1E4593001B6B0E /* Shortcuts.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = Shortcuts.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F455C6462A1E479A001B6B0E /* Bypass-API-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bypass-API-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F45646C02A2F0576002E94F5 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
 		F487D5DD2A2DE7770035CC35 /* Bypass API.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bypass API.entitlements"; sourceTree = "<group>"; };
 		F487D5DE2A2DE7830035CC35 /* Shortcuts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shortcuts.entitlements; sourceTree = "<group>"; };
 		F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AppIcons/Assets.xcassets; sourceTree = "<group>"; };
@@ -147,9 +148,18 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		F45646BF2A2F04EE002E94F5 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				F45646C02A2F0576002E94F5 /* WhatToTest.en-US.txt */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 		F4E86F312A09120C009530D6 = {
 			isa = PBXGroup;
 			children = (
+				F45646BF2A2F04EE002E94F5 /* TestFlight */,
 				F4E86F3C2A09120C009530D6 /* Bypass API */,
 				F4E86F9B2A0924E4009530D6 /* Shortcuts */,
 				F455C6272A1E36CA001B6B0E /* Requests */,
