@@ -11,8 +11,6 @@
 		F455C62E2A1E36E9001B6B0E /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455C62D2A1E36E9001B6B0E /* Requests.swift */; };
 		F455C63C2A1E4589001B6B0E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; };
 		F455C63D2A1E4589001B6B0E /* Requests.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F455C6412A1E4593001B6B0E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; };
-		F455C6422A1E4593001B6B0E /* Requests.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4ACAF702A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
 		F4ACAF712A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
 		F4ACAF722A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
@@ -31,13 +29,6 @@
 			remoteInfo = Shortcuts;
 		};
 		F455C6322A1E3800001B6B0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F4E86F322A09120C009530D6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F455C6252A1E36CA001B6B0E;
-			remoteInfo = Requests;
-		};
-		F455C6372A1E3820001B6B0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4E86F322A09120C009530D6 /* Project object */;
 			proxyType = 1;
@@ -83,17 +74,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F455C6392A1E3820001B6B0E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F455C6422A1E4593001B6B0E /* Requests.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +82,7 @@
 		F455C63E2A1E4589001B6B0E /* Bypass API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bypass API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F455C6432A1E4593001B6B0E /* Shortcuts.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = Shortcuts.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F455C6462A1E479A001B6B0E /* Bypass-API-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bypass-API-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F45646C02A2F0576002E94F5 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
 		F487D5DD2A2DE7770035CC35 /* Bypass API.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bypass API.entitlements"; sourceTree = "<group>"; };
 		F487D5DE2A2DE7830035CC35 /* Shortcuts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shortcuts.entitlements; sourceTree = "<group>"; };
 		F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AppIcons/Assets.xcassets; sourceTree = "<group>"; };
@@ -132,7 +113,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F455C6412A1E4593001B6B0E /* Requests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,9 +127,18 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		F45646BF2A2F04EE002E94F5 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				F45646C02A2F0576002E94F5 /* WhatToTest.en-US.txt */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 		F4E86F312A09120C009530D6 = {
 			isa = PBXGroup;
 			children = (
+				F45646BF2A2F04EE002E94F5 /* TestFlight */,
 				F4E86F3C2A09120C009530D6 /* Bypass API */,
 				F4E86F9B2A0924E4009530D6 /* Shortcuts */,
 				F455C6272A1E36CA001B6B0E /* Requests */,
@@ -242,12 +231,10 @@
 				F4E86F962A0924E4009530D6 /* Sources */,
 				F4E86F972A0924E4009530D6 /* Frameworks */,
 				F4E86F982A0924E4009530D6 /* Resources */,
-				F455C6392A1E3820001B6B0E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F455C6382A1E3820001B6B0E /* PBXTargetDependency */,
 				F455C6452A1E4593001B6B0E /* PBXTargetDependency */,
 			);
 			name = Shortcuts;
@@ -363,11 +350,6 @@
 			isa = PBXTargetDependency;
 			target = F455C6252A1E36CA001B6B0E /* Requests */;
 			targetProxy = F455C6322A1E3800001B6B0E /* PBXContainerItemProxy */;
-		};
-		F455C6382A1E3820001B6B0E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F455C6252A1E36CA001B6B0E /* Requests */;
-			targetProxy = F455C6372A1E3820001B6B0E /* PBXContainerItemProxy */;
 		};
 		F455C6402A1E4589001B6B0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -576,7 +558,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Bypass API/Bypass API.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_ASSET_PATHS = "Bypass\\ API/AppIcons Bypass\\ API/AppIcons/Assets.xcassets/AppIcon.appiconset/Contents.json";
+				DEVELOPMENT_ASSET_PATHS = "Bypass\\ API/AppIcons/Assets.xcassets";
 				DEVELOPMENT_TEAM = M7658Z3ZA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -593,7 +575,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -614,7 +596,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Bypass API/Bypass API.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_ASSET_PATHS = "Bypass\\ API/AppIcons Bypass\\ API/AppIcons/Assets.xcassets/AppIcon.appiconset/Contents.json";
+				DEVELOPMENT_ASSET_PATHS = "Bypass\\ API/AppIcons/Assets.xcassets";
 				DEVELOPMENT_TEAM = M7658Z3ZA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -631,7 +613,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -648,7 +630,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Shortcuts/Shortcuts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = M7658Z3ZA9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shortcuts/Info.plist;
@@ -660,7 +642,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api.shortcut";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -675,7 +657,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Shortcuts/Shortcuts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = M7658Z3ZA9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shortcuts/Info.plist;
@@ -687,7 +669,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api.shortcut";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
