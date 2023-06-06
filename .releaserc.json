@@ -5,6 +5,14 @@
     {
       "name": "develop",
       "prerelease": "dev"
+    },
+    {
+      "name": "release/*",
+      "prerelease": "rc"
+    },
+    {
+      "name": "hotfix/*",
+      "prerelease": "rc"
     }
   ],
   "plugins": [
