@@ -2,10 +2,9 @@
   "tagFormat": "${version}",
   "branches": [
     "main",
-    {
-      "name": "develop",
-      "prerelease": "dev"
-    }
+    "develop",
+    "release/*",
+    "hotfix/*"
   ],
   "plugins": [
     [
@@ -35,12 +34,14 @@
       "@semantic-release/release-notes-generator",
       {
         "preset": "conventionalcommits",
+        "linkReferences": false,
+        "linkCompare": false,
         "presetConfig": {
           "types": [
-            {"type": "added", "section": ":sparkles: Added", "hidden": false},
-            {"type": "changed", "section": ":hammer: Changed", "hidden": false},
-            {"type": "updated", "section": ":hammer: Changed", "hidden": false},
-            {"type": "fixed", "section": ":tools: Fixed", "hidden": false},
+            {"type": "added", "section": "Added", "hidden": false},
+            {"type": "changed", "section": "Changed", "hidden": false},
+            {"type": "updated", "section": "Changed", "hidden": false},
+            {"type": "fixed", "section": "Fixed", "hidden": false},
             {"type": "docs", "hidden": true},
             {"type": "ci", "hidden": true}
           ]
@@ -50,13 +51,13 @@
     [
       "@semantic-release/exec",
       {
-        "verifyReleaseCmd": "echo ${nextRelease.version} > .VERSION"
+        "prepareCmd": "chmod +x set-version.sh && ./set-version.sh ${nextRelease.version} \"${nextRelease.notes}\""
       }
     ],
     [
       "@semantic-release/changelog",
       {
-        "changelogFile": "CHANGELOG.md"
+        "changelogFile": "CHANGELOG.md" 
       }
     ],
     [
@@ -65,7 +66,8 @@
         "assets": [
           "CHANGELOG.md",
           ".VERSION",
-          "Bypass API.xcodeproj/project.pbxproj"
+          "Bypass API.xcodeproj/project.pbxproj",
+          "TestFlight/WhatToTest.en-US.txt"
         ]
       }
     ]

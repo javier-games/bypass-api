@@ -3,11 +3,13 @@ on:
     branches:
       - develop
       - main
+      - release/*
+      - hotfix/*
 
 jobs:
 
-  set-version:
-    name: Set Project Version
+  trigger-xcode-cloud:
+    name: Set Project Version to Trigger Xcode Cloud
     runs-on: ubuntu-latest
     steps:
 
@@ -32,11 +34,4 @@ jobs:
           npm install -g conventional-changelog-conventionalcommits
 
       - name: Set Version
-        run: |
-          semantic-release -d --no-ci
-          VERSION=$(cat .VERSION)
-          echo "The Version is $(cat .VERSION)"
-          PROJECT_FILE="Bypass API.xcodeproj/project.pbxproj"
-          sed -i '/Debug \*\/ = {/,/};/s/MARKETING_VERSION = [0-9]*\.[0-9]*\.[0-9]*/MARKETING_VERSION = '"$VERSION"'/g' "$PROJECT_FILE"
-          sed -i '/Release \*\/ = {/,/};/s/MARKETING_VERSION = [0-9]*\.[0-9]*\.[0-9]*/MARKETING_VERSION = '"$VERSION"'/g' "$PROJECT_FILE"
-          semantic-release
+        run: semantic-release

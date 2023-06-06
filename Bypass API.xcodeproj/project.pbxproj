@@ -7,11 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F41E28FE2A209BF60004E114 /* Shortcuts.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = F455C6432A1E4593001B6B0E /* Shortcuts.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F455C62E2A1E36E9001B6B0E /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455C62D2A1E36E9001B6B0E /* Requests.swift */; };
+		F455C63C2A1E4589001B6B0E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; };
+		F455C63D2A1E4589001B6B0E /* Requests.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4ACAF702A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
+		F4ACAF712A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
+		F4ACAF722A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
+		F4E86F3E2A09120C009530D6 /* Bypass_APIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E86F3D2A09120C009530D6 /* Bypass_APIApp.swift */; };
+		F4E86F402A09120C009530D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E86F3F2A09120C009530D6 /* ContentView.swift */; };
+		F4E86F9D2A0924E4009530D6 /* ShortcutsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E86F9C2A0924E4009530D6 /* ShortcutsExtension.swift */; };
+		F4E86F9F2A0924E4009530D6 /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E86F9E2A0924E4009530D6 /* Shortcuts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F41E28FF2A209BF60004E114 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4E86F322A09120C009530D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4E86F992A0924E4009530D6;
+			remoteInfo = Shortcuts;
+		};
+		F455C6322A1E3800001B6B0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4E86F322A09120C009530D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F455C6252A1E36CA001B6B0E;
+			remoteInfo = Requests;
+		};
 		F455C63F2A1E4589001B6B0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4E86F322A09120C009530D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F455C6252A1E36CA001B6B0E;
+			remoteInfo = Requests;
+		};
+		F455C6442A1E4593001B6B0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4E86F322A09120C009530D6 /* Project object */;
 			proxyType = 1;
@@ -27,6 +58,7 @@
 			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
+				F41E28FE2A209BF60004E114 /* Shortcuts.appex in Embed ExtensionKit Extensions */,
 			);
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,6 +69,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F455C63D2A1E4589001B6B0E /* Requests.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,14 +77,39 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F455C62D2A1E36E9001B6B0E /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		F455C63A2A1E3CC0001B6B0E /* Requests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Requests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F455C63E2A1E4589001B6B0E /* Bypass API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bypass API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F455C6432A1E4593001B6B0E /* Shortcuts.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = Shortcuts.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F455C6462A1E479A001B6B0E /* Bypass-API-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bypass-API-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F45646C02A2F0576002E94F5 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
 		F487D5DD2A2DE7770035CC35 /* Bypass API.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bypass API.entitlements"; sourceTree = "<group>"; };
+		F487D5DE2A2DE7830035CC35 /* Shortcuts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shortcuts.entitlements; sourceTree = "<group>"; };
 		F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AppIcons/Assets.xcassets; sourceTree = "<group>"; };
-		F4F941902A2ECD5800A1A965 /* Bypass API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bypass API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4E86F3D2A09120C009530D6 /* Bypass_APIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bypass_APIApp.swift; sourceTree = "<group>"; };
+		F4E86F3F2A09120C009530D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F4E86F9C2A0924E4009530D6 /* ShortcutsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsExtension.swift; sourceTree = "<group>"; };
+		F4E86F9E2A0924E4009530D6 /* Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
+		F4E86FA02A0924E4009530D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F455C6232A1E36CA001B6B0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4E86F372A09120C009530D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F455C63C2A1E4589001B6B0E /* Requests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4E86F972A0924E4009530D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -61,11 +119,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F455C6272A1E36CA001B6B0E /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				F455C62D2A1E36E9001B6B0E /* Requests.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		F45646BF2A2F04EE002E94F5 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				F45646C02A2F0576002E94F5 /* WhatToTest.en-US.txt */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 		F4E86F312A09120C009530D6 = {
 			isa = PBXGroup;
 			children = (
+				F45646BF2A2F04EE002E94F5 /* TestFlight */,
 				F4E86F3C2A09120C009530D6 /* Bypass API */,
-				F4F941902A2ECD5800A1A965 /* Bypass API.app */,
+				F4E86F9B2A0924E4009530D6 /* Shortcuts */,
+				F455C6272A1E36CA001B6B0E /* Requests */,
+				F455C63A2A1E3CC0001B6B0E /* Requests.framework */,
+				F455C63E2A1E4589001B6B0E /* Bypass API.app */,
+				F455C6432A1E4593001B6B0E /* Shortcuts.appex */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,13 +154,54 @@
 				F487D5DD2A2DE7770035CC35 /* Bypass API.entitlements */,
 				F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */,
 				F455C6462A1E479A001B6B0E /* Bypass-API-Info.plist */,
+				F4E86F3D2A09120C009530D6 /* Bypass_APIApp.swift */,
+				F4E86F3F2A09120C009530D6 /* ContentView.swift */,
 			);
 			path = "Bypass API";
 			sourceTree = "<group>";
 		};
+		F4E86F9B2A0924E4009530D6 /* Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				F487D5DE2A2DE7830035CC35 /* Shortcuts.entitlements */,
+				F4E86F9C2A0924E4009530D6 /* ShortcutsExtension.swift */,
+				F4E86F9E2A0924E4009530D6 /* Shortcuts.swift */,
+				F4E86FA02A0924E4009530D6 /* Info.plist */,
+			);
+			path = Shortcuts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		F455C6212A1E36CA001B6B0E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		F455C6252A1E36CA001B6B0E /* Requests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F455C62C2A1E36CA001B6B0E /* Build configuration list for PBXNativeTarget "Requests" */;
+			buildPhases = (
+				F455C6212A1E36CA001B6B0E /* Headers */,
+				F455C6222A1E36CA001B6B0E /* Sources */,
+				F455C6232A1E36CA001B6B0E /* Frameworks */,
+				F455C6242A1E36CA001B6B0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Requests;
+			productName = Requests;
+			productReference = F455C63A2A1E3CC0001B6B0E /* Requests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		F4E86F392A09120C009530D6 /* Bypass API */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4E86F482A09120D009530D6 /* Build configuration list for PBXNativeTarget "Bypass API" */;
@@ -95,12 +215,32 @@
 			buildRules = (
 			);
 			dependencies = (
+				F455C6332A1E3800001B6B0E /* PBXTargetDependency */,
 				F455C6402A1E4589001B6B0E /* PBXTargetDependency */,
+				F41E29002A209BF60004E114 /* PBXTargetDependency */,
 			);
 			name = "Bypass API";
 			productName = "Bypass API";
-			productReference = F4F941902A2ECD5800A1A965 /* Bypass API.app */;
+			productReference = F455C63E2A1E4589001B6B0E /* Bypass API.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F4E86F992A0924E4009530D6 /* Shortcuts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4E86FA72A0924E4009530D6 /* Build configuration list for PBXNativeTarget "Shortcuts" */;
+			buildPhases = (
+				F4E86F962A0924E4009530D6 /* Sources */,
+				F4E86F972A0924E4009530D6 /* Frameworks */,
+				F4E86F982A0924E4009530D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F455C6452A1E4593001B6B0E /* PBXTargetDependency */,
+			);
+			name = Shortcuts;
+			productName = Shortcuts;
+			productReference = F455C6432A1E4593001B6B0E /* Shortcuts.appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -111,9 +251,15 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
-				ORGANIZATIONNAME = "Javier García";
 				TargetAttributes = {
+					F455C6252A1E36CA001B6B0E = {
+						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
+					};
 					F4E86F392A09120C009530D6 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					F4E86F992A0924E4009530D6 = {
 						CreatedOnToolsVersion = 14.3;
 					};
 				};
@@ -132,11 +278,21 @@
 			projectRoot = "";
 			targets = (
 				F4E86F392A09120C009530D6 /* Bypass API */,
+				F4E86F992A0924E4009530D6 /* Shortcuts */,
+				F455C6252A1E36CA001B6B0E /* Requests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F455C6242A1E36CA001B6B0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4ACAF722A2220CA008FA555 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4E86F382A09120C009530D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -145,26 +301,140 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F4E86F982A0924E4009530D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4ACAF712A2220CA008FA555 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F455C6222A1E36CA001B6B0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F455C62E2A1E36E9001B6B0E /* Requests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4E86F362A09120C009530D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E86F402A09120C009530D6 /* ContentView.swift in Sources */,
+				F4E86F3E2A09120C009530D6 /* Bypass_APIApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4E86F962A0924E4009530D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4E86F9D2A0924E4009530D6 /* ShortcutsExtension.swift in Sources */,
+				F4E86F9F2A0924E4009530D6 /* Shortcuts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F41E29002A209BF60004E114 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4E86F992A0924E4009530D6 /* Shortcuts */;
+			targetProxy = F41E28FF2A209BF60004E114 /* PBXContainerItemProxy */;
+		};
+		F455C6332A1E3800001B6B0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F455C6252A1E36CA001B6B0E /* Requests */;
+			targetProxy = F455C6322A1E3800001B6B0E /* PBXContainerItemProxy */;
+		};
 		F455C6402A1E4589001B6B0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			target = F455C6252A1E36CA001B6B0E /* Requests */;
 			targetProxy = F455C63F2A1E4589001B6B0E /* PBXContainerItemProxy */;
+		};
+		F455C6452A1E4593001B6B0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F455C6252A1E36CA001B6B0E /* Requests */;
+			targetProxy = F455C6442A1E4593001B6B0E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		F455C62A2A1E36CA001B6B0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = M7658Z3ZA9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = games.javier.frameworks.requests;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F455C62B2A1E36CA001B6B0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = M7658Z3ZA9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = games.javier.frameworks.requests;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F4E86F462A09120D009530D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -282,12 +552,13 @@
 		F4E86F492A09120D009530D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Bypass API/Bypass API.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_ASSET_PATHS = "Bypass\\ API/AppIcons Bypass\\ API/AppIcons/Assets.xcassets/AppIcon.appiconset/Contents.json";
+				DEVELOPMENT_ASSET_PATHS = "Bypass\\ API/AppIcons/Assets.xcassets";
 				DEVELOPMENT_TEAM = M7658Z3ZA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -304,7 +575,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -319,12 +590,13 @@
 		F4E86F4A2A09120D009530D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Bypass API/Bypass API.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_ASSET_PATHS = "Bypass\\ API/AppIcons Bypass\\ API/AppIcons/Assets.xcassets/AppIcon.appiconset/Contents.json";
+				DEVELOPMENT_ASSET_PATHS = "Bypass\\ API/AppIcons/Assets.xcassets";
 				DEVELOPMENT_TEAM = M7658Z3ZA9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -341,7 +613,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -353,9 +625,72 @@
 			};
 			name = Release;
 		};
+		F4E86FA52A0924E4009530D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Shortcuts/Shortcuts.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = M7658Z3ZA9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shortcuts/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Shortcuts;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api.shortcut";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4E86FA62A0924E4009530D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Shortcuts/Shortcuts.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = M7658Z3ZA9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shortcuts/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Shortcuts;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api.shortcut";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F455C62C2A1E36CA001B6B0E /* Build configuration list for PBXNativeTarget "Requests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F455C62A2A1E36CA001B6B0E /* Debug */,
+				F455C62B2A1E36CA001B6B0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F4E86F352A09120C009530D6 /* Build configuration list for PBXProject "Bypass API" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -370,6 +705,15 @@
 			buildConfigurations = (
 				F4E86F492A09120D009530D6 /* Debug */,
 				F4E86F4A2A09120D009530D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4E86FA72A0924E4009530D6 /* Build configuration list for PBXNativeTarget "Shortcuts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4E86FA52A0924E4009530D6 /* Debug */,
+				F4E86FA62A0924E4009530D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
