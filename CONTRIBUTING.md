@@ -28,7 +28,7 @@ We use GitHub issues to track public bugs and feature requests. Please ensure yo
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Bypass API Code of Conduct](CODECONDUCT.md). By participating, you are expected to uphold this code.
+This project and everyone participating in it is governed by the [Bypass API Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
 ## License
 
