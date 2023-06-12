@@ -1,8 +1,8 @@
-## 0.1.1 (2023-06-07)
+## 0.1.2 (2023-06-12)
 
 
-### Fixed
+### Changed
 
-* Missing encryption compliance. 43a1da9
+* iPad Support. 61d12fe
 
 
