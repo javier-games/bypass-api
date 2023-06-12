@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		F41E28FE2A209BF60004E114 /* Shortcuts.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = F455C6432A1E4593001B6B0E /* Shortcuts.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F455C62E2A1E36E9001B6B0E /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455C62D2A1E36E9001B6B0E /* Requests.swift */; };
-		F455C63C2A1E4589001B6B0E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; };
-		F455C63D2A1E4589001B6B0E /* Requests.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F455C63C2A1E4589001B6B0E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; platformFilter = ios; };
+		F455C63D2A1E4589001B6B0E /* Requests.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4ACAF702A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
 		F4ACAF712A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
 		F4ACAF722A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
@@ -348,11 +348,13 @@
 		};
 		F455C6332A1E3800001B6B0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = F455C6252A1E36CA001B6B0E /* Requests */;
 			targetProxy = F455C6322A1E3800001B6B0E /* PBXContainerItemProxy */;
 		};
 		F455C6402A1E4589001B6B0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = F455C6252A1E36CA001B6B0E /* Requests */;
 			targetProxy = F455C63F2A1E4589001B6B0E /* PBXContainerItemProxy */;
 		};
@@ -568,8 +570,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -583,7 +585,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -606,8 +608,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -621,7 +623,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
