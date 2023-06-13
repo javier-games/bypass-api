@@ -3,40 +3,21 @@ on:
     branches:
       - develop
       - main
+      - release/*
+      - hotfix/*
 
 jobs:
 
-  set-version:
-    name: Set Project Version
+  trigger-xcode-cloud:
+    name: Set Project Version to Trigger Xcode Cloud
     runs-on: ubuntu-latest
     steps:
 
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
-
       - name: Install Dependencies
-        run: |
-          sudo apt-get update && sudo apt-get install -y --no-install-suggests --no-install-recommends
-          npm install -g semantic-release@21
-          npm install -g @semantic-release/changelog
-          npm install -g @semantic-release/commit-analyzer
-          npm install -g @semantic-release/release-notes-generator
-          npm install -g @semantic-release/exec
-          npm install -g @semantic-release/git
-          npm install -g @semantic-release/github
-          npm install -g conventional-changelog-conventionalcommits
+        uses: javier-games/semantic-version-common-dependencies@v1.1
 
       - name: Set Version
-        run: |
-          semantic-release -d --no-ci
-          VERSION=$(cat .VERSION)
-          echo "The Version is $(cat .VERSION)"
-          PROJECT_FILE="Bypass API.xcodeproj/project.pbxproj"
-          sed -i '/Debug \*\/ = {/,/};/s/MARKETING_VERSION = [0-9]*\.[0-9]*\.[0-9]*/MARKETING_VERSION = '"$VERSION"'/g' "$PROJECT_FILE"
-          sed -i '/Release \*\/ = {/,/};/s/MARKETING_VERSION = [0-9]*\.[0-9]*\.[0-9]*/MARKETING_VERSION = '"$VERSION"'/g' "$PROJECT_FILE"
-          semantic-release
+        run: semantic-release
