@@ -2,11 +2,11 @@
 
 ![Build status](https://github.com/javier-games/bypass-api/actions/workflows/ci.yml/badge.svg)
 
-[![App Store](https://img.shields.io/badge/App_Store-Available-blue.svg?logo=apple)](https://apps.apple.com/app/bypass-api/id6449934061)
+[![App Store](https://img.shields.io/badge/app_store-available-blue.svg?logo=apple)](https://apps.apple.com/app/bypass-api/id6449934061)
 
-[![Donate](https://img.shields.io/badge/Give_Support-blue.svg?logo=paypal)](https://www.paypal.com/donate/?hosted_button_id=QY4PCGA8FMCC4)
+[![Donate](https://img.shields.io/badge/support-blue.svg?logo=paypal)](https://www.paypal.com/donate/?hosted_button_id=QY4PCGA8FMCC4)
 
-![bypass-icon.png](Documentation%2FImages%2Fbypass-icon.png)
+![bypass-icon.png](Documentation/Images/bypass-icon.png)
 
 Bypass API is an innovative app designed to facilitate the creation and usage of editable requests directly from Apple's Shortcuts app. It incorporates a user-friendly request set up, enabling users to send requests and receive information with ease.
 
