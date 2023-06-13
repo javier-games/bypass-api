@@ -1,3 +1,14 @@
+## 1.0.0 (2023-06-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* First version release!
+
+Main menu UI for requests management and zero input send request action in shortcuts using app intents.
+
+* Merge pull request #7 from javier-games/release/1.0.0 7ff0cc6, closes #7
+
 ## 0.1.2 (2023-06-12)
 
 

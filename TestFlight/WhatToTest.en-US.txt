@@ -1,8 +1,12 @@
-## 0.1.2 (2023-06-12)
+## 1.0.0 (2023-06-13)
 
 
-### Changed
+### ⚠ BREAKING CHANGES
 
-* iPad Support. 61d12fe
+* First version release!
+
+Main menu UI for requests management and zero input send request action in shortcuts using app intents.
+
+* Merge pull request #7 from javier-games/release/1.0.0 7ff0cc6, closes #7
 
 
