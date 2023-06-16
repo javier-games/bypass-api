@@ -68,7 +68,7 @@ Please read our [Contributing Guide](CONTRIBUTING.md) before submitting a Pull R
 
 ## Support
 
-For any questions or issues, please open a [new issue](https://github.com/javier-games/bypass-api/issues/new) on this repository.
+For any questions or issues regarding the App usage please visit our [support](SUPPORT.md) page, also feel free to open a [new issue](https://github.com/javier-games/bypass-api/issues/new) on this repository for app usage and the Xcode project issues.
 
 ## Donations
 
