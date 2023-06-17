@@ -1,3 +1,15 @@
+## 1.1.0 (2023-06-17)
+
+
+### Added
+
+* Send request from app. 1c326fe
+
+
+### Fixed
+
+* Delete elements from dictionaries. 552fae0
+
 ## 1.0.0 (2023-06-13)
 
 
