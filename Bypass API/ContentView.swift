@@ -79,6 +79,8 @@ struct RequestView: View {
     @State private var formData: [KeyValuePair] = []
     @State private var rawBody: String = ""
     
+    @State private var isAlertVisible: Bool = false
+    @State private var resultMessage: String = ""
     
     var body: some View {
         NavigationView {
@@ -114,7 +116,7 @@ struct RequestView: View {
                             TextField("Key", text: $headers[index].key)
                             TextField("Value", text: $headers[index].value)
                         }
-                    }
+                    }.onDelete(perform: deleteHeader)
                     Button(action: {headers.append(KeyValuePair())}) {
                         Label("Add", systemImage: "plus")
                     }
@@ -136,7 +138,7 @@ struct RequestView: View {
                                 TextField("Key", text: $formData[index].key)
                                 TextField("Value", text: $formData[index].value)
                             }
-                        }
+                        }.onDelete(perform: deleteFormData)
                         Button(action: {formData.append(KeyValuePair())}) {
                             Label("Add", systemImage: "plus")
                         }
@@ -151,6 +153,22 @@ struct RequestView: View {
 
                 } header: {
                     Text("Body")
+                }
+                
+                Section {
+                    Button(action: {
+                        if !name.isEmpty && !url.isEmpty {
+                            sendRequest {
+                                result in
+                                self.resultMessage = result
+                                self.isAlertVisible = true
+                            }
+                        }
+                    }){
+                        Text("Send Request")
+                    }.disabled(name.isEmpty || url.isEmpty)
+                }.alert(isPresented: $isAlertVisible) {
+                    Alert(title: Text("Request Result"), message: Text(resultMessage), dismissButton: .default(Text("OK")))
                 }
                 
             }
@@ -197,6 +215,42 @@ struct RequestView: View {
                 bodyType = request.bodyType
                 formData = request.formData
                 rawBody = request.rawBody
+            }
+        }
+    }
+    
+    func deleteHeader(at offsets: IndexSet) {
+        headers.remove(atOffsets: offsets)
+    }
+    
+    func deleteFormData(at offsets: IndexSet) {
+        formData.remove(atOffsets: offsets)
+    }
+    
+    func sendRequest(completion: @escaping (String) -> Void) {
+        let newRequest = Request(
+            id: selectedRequest?.id ?? UUID(),
+            name: name,
+            url: url,
+            httpMethod: httpMethod,
+            urlParams: urlParameters,
+            headers: headers,
+            bodyType: bodyType,
+            formData: formData,
+            rawBody: rawBody
+        )
+
+        // Send the request asynchronously
+        Task {
+            do {
+                let result = try await newRequest.sendRequest()
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion("Request failed with error: \(error.localizedDescription)")
+                }
             }
         }
     }

@@ -5,12 +5,11 @@ Welcome to the Bypass API Support Page! We’re here to guide you through our ap
 ## Getting Started
 
 1. [Installing Bypass API](#installing-bypass-api).
-2. [Using Bypass API with Apple's Shortcuts App](#using-bypass-api-with-apples-shortcuts-app).
 
 ## FAQ
 
 1. [Understanding Bypass API functionality](#understanding-bypass-api-functionality).
-2. [Creating a Request in Bypass API](#creating-a-request-in-bypass-api).
+2. [Creating and Sending a Request in Bypass API](#creating-a-request-in-bypass-api).
 
 ## Advanced Guides
 
@@ -29,17 +28,15 @@ Can’t find the help you need? Feel free to [contact our support team,](#contac
 ### Installing Bypass API
 You can download Bypass API directly from the [App Store](https://apps.apple.com/app/bypass-api/id6449934061). Compatible with iOS 16.5 and later versions. 
 
-### Using Bypass API with Apple's Shortcuts App
-Bypass API serves as a collection of APIs that can be extended for use within Apple's Shortcuts App. Learn more about Apple's Shortcuts app from their [support page](https://support.apple.com/guide/shortcuts/intro-to-shortcuts-apdf22b0444c/ios).
-
 ### Understanding Bypass API Functionality
-Bypass API operates by allowing your APIs to interact with Apple's Shortcuts App. Detailed information about this can be found here.
+The Bypass API serves as a repository for your custom requests, enabling you to send them and read the responses directly within the app. Additionally, it allows your stored APIs to interact with Apple's Shortcuts App. Detailed information about this can be found in [here](#using-bypass-api-with-apples-shortcuts-app).
 
 ### Creating a Request in Bypass API
-To utilize Bypass API, you must first create a request. This involves selecting the HTTP method, assigning an identifying name, and inputting a URL. These fields are required for saving the request. Optionally, headers and a content body can also be included. Currently, the content body supports JSON Body and Multi-Form with string values only.
+To utilize Bypass API, you must first create a request. This involves selecting the HTTP method, assigning an identifying name, and inputting a URL. These fields are required for saving the request. Optionally, headers and a content body can also be included. Currently, the content body supports JSON Body and Multi-Form with string values only. Once the URL and Name are not defined you can start send them by pressing the button at the bottom of the new request form.
 
 ### Integrating Bypass API with Shortcuts
-To integrate Bypass API with the Shortcuts App, follow the steps below:
+
+Bypass can send your request directly from the app. It integrates a secondary feature that allows you to interact with the Shortcuts App. To fully implement it follow the steps below:
 
 1. Download the Shortcuts App from the [App Store](https://apps.apple.com/mx/app/shortcuts/id1462947752?l=en).
 2. Open the Shortcuts App.
@@ -53,10 +50,10 @@ After executing the shortcut, you will receive the response text from the reques
 For more detailed guidance on creating shortcuts, visit [here](https://support.apple.com/guide/shortcuts/intro-to-shortcuts-apdf22b0444c/ios).
 
 ### Maintaining Security with Bypass API
-While Bypass API does not track your information, it is up to the user to manage the personal information they input into the app and the services they connect to. Learn more about privacy and security practices here.
+While Bypass API does not track your information, it is up to the user to manage the personal information they input into the app and the services they connect to.
 
 ### Bypass API Documentation
-Bypass API, being an open-source project, encourages active community participation and knowledge sharing. For comprehensive understanding, technical specifications, and in-depth exploration of our API, visit our official [GitHub repository](https://github.com/javier-games/bypass-api). Here, you will find detailed documentation, insights into the project's architecture, and discussion threads to aid in your use and potential contribution to the Bypass API.
+Bypass API, being an open-source project, encourages active community participation and knowledge sharing. For comprehensive understanding, technical specifications, and in-depth exploration of our project, visit our official [GitHub repository](https://github.com/javier-games/bypass-api). Here, you will find detailed documentation, insights into the project's architecture, and discussion threads to aid in your use and potential contribution to the Bypass API.
 
 ### Terms of Service and Privacy Policy
 By using Bypass API, you agree to our [Terms of Service](TERMS_AND_CONDITIONS.md) and [Privacy Policy](PRIVACY_POLICY.md). Please make sure to read and understand them.
