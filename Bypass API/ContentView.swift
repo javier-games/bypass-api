@@ -116,7 +116,7 @@ struct RequestView: View {
                             TextField("Key", text: $headers[index].key)
                             TextField("Value", text: $headers[index].value)
                         }
-                    }
+                    }.onDelete(perform: deleteHeader)
                     Button(action: {headers.append(KeyValuePair())}) {
                         Label("Add", systemImage: "plus")
                     }
@@ -138,7 +138,7 @@ struct RequestView: View {
                                 TextField("Key", text: $formData[index].key)
                                 TextField("Value", text: $formData[index].value)
                             }
-                        }
+                        }.onDelete(perform: deleteFormData)
                         Button(action: {formData.append(KeyValuePair())}) {
                             Label("Add", systemImage: "plus")
                         }
@@ -217,6 +217,14 @@ struct RequestView: View {
                 rawBody = request.rawBody
             }
         }
+    }
+    
+    func deleteHeader(at offsets: IndexSet) {
+        headers.remove(atOffsets: offsets)
+    }
+    
+    func deleteFormData(at offsets: IndexSet) {
+        formData.remove(atOffsets: offsets)
     }
     
     func sendRequest(completion: @escaping (String) -> Void) {
