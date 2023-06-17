@@ -79,6 +79,8 @@ struct RequestView: View {
     @State private var formData: [KeyValuePair] = []
     @State private var rawBody: String = ""
     
+    @State private var isAlertVisible: Bool = false
+    @State private var resultMessage: String = ""
     
     var body: some View {
         NavigationView {
@@ -153,6 +155,22 @@ struct RequestView: View {
                     Text("Body")
                 }
                 
+                Section {
+                    Button(action: {
+                        if !name.isEmpty && !url.isEmpty {
+                            sendRequest {
+                                result in
+                                self.resultMessage = result
+                                self.isAlertVisible = true
+                            }
+                        }
+                    }){
+                        Text("Send Request")
+                    }.disabled(name.isEmpty || url.isEmpty)
+                }.alert(isPresented: $isAlertVisible) {
+                    Alert(title: Text("Request Result"), message: Text(resultMessage), dismissButton: .default(Text("OK")))
+                }
+                
             }
             
             .navigationBarTitle("New Request", displayMode: .inline)
@@ -197,6 +215,34 @@ struct RequestView: View {
                 bodyType = request.bodyType
                 formData = request.formData
                 rawBody = request.rawBody
+            }
+        }
+    }
+    
+    func sendRequest(completion: @escaping (String) -> Void) {
+        let newRequest = Request(
+            id: selectedRequest?.id ?? UUID(),
+            name: name,
+            url: url,
+            httpMethod: httpMethod,
+            urlParams: urlParameters,
+            headers: headers,
+            bodyType: bodyType,
+            formData: formData,
+            rawBody: rawBody
+        )
+
+        // Send the request asynchronously
+        Task {
+            do {
+                let result = try await newRequest.sendRequest()
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion("Request failed with error: \(error.localizedDescription)")
+                }
             }
         }
     }
