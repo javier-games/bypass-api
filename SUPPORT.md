@@ -26,7 +26,7 @@ Can’t find the help you need? Feel free to [contact our support team,](#contac
 ***
 
 ### Installing Bypass API
-You can download Bypass API directly from the [App Store](https://apps.apple.com/app/bypass-api/id6449934061). Compatible with iOS 16.5 and later versions. 
+You can download Bypass API from [Test Flight](https://testflight.apple.com/join/0gP0Qmic). Compatible with iOS 16.5 and later versions. 
 
 ### Understanding Bypass API Functionality
 The Bypass API serves as a repository for your custom requests, enabling you to send them and read the responses directly within the app. Additionally, it allows your stored APIs to interact with Apple's Shortcuts App. Detailed information about this can be found in [here](#using-bypass-api-with-apples-shortcuts-app).
@@ -38,7 +38,7 @@ To utilize Bypass API, you must first create a request. This involves selecting 
 
 Bypass can send your request directly from the app. It integrates a secondary feature that allows you to interact with the Shortcuts App. To fully implement it follow the steps below:
 
-1. Download the Shortcuts App from the [App Store](https://apps.apple.com/mx/app/shortcuts/id1462947752?l=en).
+1. Download the Shortcuts App from [Test Flight](https://testflight.apple.com/join/0gP0Qmic).
 2. Open the Shortcuts App.
 3. Tap the plus (+) button to create a new shortcut.
 4. Open the 'Search for apps and actions' section.
