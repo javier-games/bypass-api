@@ -44,3 +44,26 @@ struct SendRequest: AppIntent {
         }
     }
 }
+
+struct SendEncryptedRequest: AppIntent {
+    
+    static var title: LocalizedStringResource = "Send Encrypted Request"
+    static var description: IntentDescription? = "Sends a request with an ecrypted data. Usefull to share requests with tokens."
+    
+    @Parameter(title: "Encrypted Service")
+    var encryptedService: String
+    
+    
+    func perform() async throws -> some IntentResult  {
+        
+        let request = Request.deserialize(from: encryptedService)
+        var response : String
+        response = "Fail on send request."
+        do {
+            response = try await request!.sendRequest()
+            return .result(value: response)
+        } catch {
+            return .result(value: response)
+        }
+    }
+}

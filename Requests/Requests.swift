@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Crypto
 
 public enum HTTPMethod:String, CaseIterable, Identifiable, Codable {
     case GET = "GET"
@@ -144,7 +145,100 @@ public struct Request: Codable {
             
         }
     }
+    
+    public func serialize() -> String? {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        do {
+            let data = try encoder.encode(self)
+            if let string = String(data: data, encoding: .utf8) {
+                guard let keyString = ProcessInfo.processInfo.environment["CRYPTO_KEY"], let keyData = keyString.data(using: .utf8) else {
+                    throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Unable to fetch encryption key from environment variables."])
+                }
+                let key = SymmetricKey(data: keyData)
+                let sealedBox = try AES.GCM.seal(string.data(using: .utf8)!, using: key)
+                let encryptedData = sealedBox.combined
+                return encryptedData?.base64EncodedString()
+            }
+        } catch {
+            print("Failed to encode or encrypt Request: \(error)")
+        }
+        return nil
+    }
+    
+    public static func deserialize(from string: String) -> Request? {
+        guard let keyString = ProcessInfo.processInfo.environment["CRYPTO_KEY"], let keyData = keyString.data(using: .utf8) else {
+            print("Unable to fetch decryption key from environment variables.")
+            return nil
+        }
+        
+        let key = SymmetricKey(data: keyData)
+        guard let encryptedData = Data(base64Encoded: string),
+              let sealedBox = try? AES.GCM.SealedBox(combined: encryptedData),
+              let decryptedData = try? AES.GCM.open(sealedBox, using: key),
+              let decryptedString = String(data: decryptedData, encoding: .utf8) else {
+            print("Decryption failed.")
+            return nil
+        }
+        
+        let decoder = JSONDecoder()
+        if let data = decryptedString.data(using: .utf8),
+           let request = try? decoder.decode(Request.self, from: data) {
+            return request
+        } else {
+            return nil
+        }
+    }
 }
+
+//public func serialize() -> String? {
+//    let encoder = JSONEncoder()
+//    encoder.outputFormatting = .prettyPrinted
+//
+//    do {
+//        let data = try encoder.encode(self)
+//        if let string = String(data: data, encoding: .utf8) {
+////            let keyData = "yourKeyStringHere".data(using: .utf8)! // Use a secure method to generate and store the key in a real app
+//                guard let keyString = ProcessInfo.processInfo.environment["CRYPTO_KEY"], let keyData = keyString.data(using: .utf8) else {
+//                    throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Unable to fetch encryption key from environment variables."])
+//                }
+//            let key = SymmetricKey(data: keyData)
+//            let sealedBox = try AES.GCM.seal(string.data(using: .utf8)!, using: key)
+//            let encryptedData = sealedBox.combined
+//            return string//encryptedData?.base64EncodedString()
+//        }
+//    } catch {
+//        print("Failed to encode or encrypt Request: \(error)")
+//    }
+//    return nil
+//}
+//
+//public static func deserialize(from string: String) -> Request? {
+//        guard let keyString = ProcessInfo.processInfo.environment["CRYPTO_KEY"], let keyData = keyString.data(using: .utf8) else {
+//            print("Unable to fetch decryption key from environment variables.")
+//            return nil
+//        }
+//    
+////    let keyData = "yourKeyStringHere".data(using: .utf8)!
+//    
+//    let key = SymmetricKey(data: keyData)
+//    guard let encryptedData = Data(base64Encoded: string),
+//          let sealedBox = try? AES.GCM.SealedBox(combined: encryptedData),
+//          let decryptedData = try? AES.GCM.open(sealedBox, using: key),
+//          let decryptedString = String(data: decryptedData, encoding: .utf8) else {
+//        print("Decryption failed.")
+//        return nil
+//    }
+//
+//    let decoder = JSONDecoder()
+//    if let data = decryptedString.data(using: .utf8),
+//       let request = try? decoder.decode(Request.self, from: data) {
+//        return request
+//    } else {
+//        return nil
+//    }
+//}
 
 public class RequestsData: ObservableObject {
     
