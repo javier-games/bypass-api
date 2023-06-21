@@ -1,7 +1,7 @@
 # Bypass API
 
 ![Build status](https://github.com/javier-games/bypass-api/actions/workflows/ci.yml/badge.svg)
-[![App Store](https://img.shields.io/badge/app_store-available-blue.svg?logo=apple)](https://apps.apple.com/app/bypass-api/id6449934061)
+[![App Store](https://img.shields.io/badge/test_flight-available-blue.svg?logo=apple)](https://testflight.apple.com/join/0gP0Qmic)
 [![Donate](https://img.shields.io/badge/support-available-blue.svg?logo=paypal)](https://www.paypal.com/donate/?hosted_button_id=QY4PCGA8FMCC4)
 
 ![bypass-icon.png](Documentation/Images/bypass-icon.png)
