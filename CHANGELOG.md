@@ -1,3 +1,11 @@
+## 1.2.0 (2023-06-21)
+
+
+### Added
+
+* Copy and Paste feature. 6191453
+* Send encrypted request app intent. da5c325
+
 ## 1.1.0 (2023-06-17)
 
 
