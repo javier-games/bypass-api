@@ -14,10 +14,8 @@ then
     exit 1
 fi
 
-file="$CI_PROJECT_FILE_PATH/xcshareddata/xcschemes/Bypass API.xcscheme"
+brew install xmlstarlet
 
-CRYPTO_KEY_ESCAPED=$(printf '%s\n' "$CRYPTO_KEY" | sed -e 's/[\/&]/\\&/g')
+xmlstarlet ed --inplace -u "//EnvironmentVariable[@key='CRYPTO_KEY']/@value" -v "$CRYPTO_KEY" "$CI_PROJECT_FILE_PATH/xcshareddata/xcschemes/Bypass API.xcscheme"
 
-sed -i.bak -e '/key = "CRYPTO_KEY"/N;s/value = ""/value = "'"$CRYPTO_KEY_ESCAPED"'"/' "$file"
-
-echo "CRYPTO_KEY updated successfully in $file"
+echo "CRYPTO_KEY updated successfully in $CI_PROJECT_FILE_PATH/xcshareddata/xcschemes/Bypass API.xcscheme"
