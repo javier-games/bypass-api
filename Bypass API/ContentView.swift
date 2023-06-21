@@ -43,14 +43,14 @@ struct ContentView: View {
                     Label("Add", systemImage: "plus")
                 }
                 
-                Button(action: {
-                    if let clipboardString = UIPasteboard.general.string,
-                       let request = Request.deserialize(from: clipboardString) {
-                        requestsData.requests.append(request)
-                    }
-                }) {
-                    Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
-                }
+//                Button(action: {
+//                    if let clipboardString = UIPasteboard.general.string,
+//                       let request = Request.deserialize(from: clipboardString) {
+//                        requestsData.requests.append(request)
+//                    }
+//                }) {
+//                    Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+//                }
                 
             }.navigationBarTitle(
                 "Requests",
