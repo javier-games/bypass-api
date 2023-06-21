@@ -14,6 +14,8 @@
 		F4ACAF702A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
 		F4ACAF712A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
 		F4ACAF722A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
+		F4B182182A43456D00F61D23 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = F4B182172A43456D00F61D23 /* Crypto */; };
+		F4B1821B2A434D8D00F61D23 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = F4B1821A2A434D8D00F61D23 /* Crypto */; };
 		F4E86F3E2A09120C009530D6 /* Bypass_APIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E86F3D2A09120C009530D6 /* Bypass_APIApp.swift */; };
 		F4E86F402A09120C009530D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E86F3F2A09120C009530D6 /* ContentView.swift */; };
 		F4E86F9D2A0924E4009530D6 /* ShortcutsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E86F9C2A0924E4009530D6 /* ShortcutsExtension.swift */; };
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B1821B2A434D8D00F61D23 /* Crypto in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F455C63C2A1E4589001B6B0E /* Requests.framework in Frameworks */,
+				F4B182182A43456D00F61D23 /* Crypto in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +139,13 @@
 			path = TestFlight;
 			sourceTree = "<group>";
 		};
+		F4B182192A434D8D00F61D23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4E86F312A09120C009530D6 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +156,7 @@
 				F455C63A2A1E3CC0001B6B0E /* Requests.framework */,
 				F455C63E2A1E4589001B6B0E /* Bypass API.app */,
 				F455C6432A1E4593001B6B0E /* Shortcuts.appex */,
+				F4B182192A434D8D00F61D23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +210,9 @@
 			dependencies = (
 			);
 			name = Requests;
+			packageProductDependencies = (
+				F4B1821A2A434D8D00F61D23 /* Crypto */,
+			);
 			productName = Requests;
 			productReference = F455C63A2A1E3CC0001B6B0E /* Requests.framework */;
 			productType = "com.apple.product-type.framework";
@@ -220,6 +235,9 @@
 				F41E29002A209BF60004E114 /* PBXTargetDependency */,
 			);
 			name = "Bypass API";
+			packageProductDependencies = (
+				F4B182172A43456D00F61D23 /* Crypto */,
+			);
 			productName = "Bypass API";
 			productReference = F455C63E2A1E4589001B6B0E /* Bypass API.app */;
 			productType = "com.apple.product-type.application";
@@ -273,6 +291,9 @@
 				Base,
 			);
 			mainGroup = F4E86F312A09120C009530D6;
+			packageReferences = (
+				F4B182162A43456D00F61D23 /* XCRemoteSwiftPackageReference "swift-crypto" */,
+			);
 			productRefGroup = F4E86F312A09120C009530D6;
 			projectDirPath = "";
 			projectRoot = "";
@@ -721,6 +742,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4B182162A43456D00F61D23 /* XCRemoteSwiftPackageReference "swift-crypto" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-crypto.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4B182172A43456D00F61D23 /* Crypto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4B182162A43456D00F61D23 /* XCRemoteSwiftPackageReference "swift-crypto" */;
+			productName = Crypto;
+		};
+		F4B1821A2A434D8D00F61D23 /* Crypto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4B182162A43456D00F61D23 /* XCRemoteSwiftPackageReference "swift-crypto" */;
+			productName = Crypto;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4E86F322A09120C009530D6 /* Project object */;
 }

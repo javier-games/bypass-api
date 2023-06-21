@@ -43,6 +43,15 @@ struct ContentView: View {
                     Label("Add", systemImage: "plus")
                 }
                 
+                Button(action: {
+                    if let clipboardString = UIPasteboard.general.string,
+                       let request = Request.deserialize(from: clipboardString) {
+                        requestsData.requests.append(request)
+                    }
+                }) {
+                    Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                }
+                
             }.navigationBarTitle(
                 "Requests",
                 displayMode: .automatic
@@ -156,6 +165,7 @@ struct RequestView: View {
                 }
                 
                 Section {
+                    
                     Button(action: {
                         if !name.isEmpty && !url.isEmpty {
                             sendRequest {
@@ -167,6 +177,15 @@ struct RequestView: View {
                     }){
                         Text("Send Request")
                     }.disabled(name.isEmpty || url.isEmpty)
+                    
+                    Button(action: {
+                        if !name.isEmpty && !url.isEmpty {
+                            copyRequest()
+                        }
+                    }){
+                        Text("Copy Request")
+                    }.disabled(name.isEmpty || url.isEmpty)
+                    
                 }.alert(isPresented: $isAlertVisible) {
                     Alert(title: Text("Request Result"), message: Text(resultMessage), dismissButton: .default(Text("OK")))
                 }
@@ -252,6 +271,24 @@ struct RequestView: View {
                     completion("Request failed with error: \(error.localizedDescription)")
                 }
             }
+        }
+    }
+    
+    func copyRequest(){
+        let newRequest = Request(
+            id: selectedRequest?.id ?? UUID(),
+            name: name,
+            url: url,
+            httpMethod: httpMethod,
+            urlParams: urlParameters,
+            headers: headers,
+            bodyType: bodyType,
+            formData: formData,
+            rawBody: rawBody
+        )
+
+        if let requestString = newRequest.serialize() {
+            UIPasteboard.general.string = requestString
         }
     }
 }
