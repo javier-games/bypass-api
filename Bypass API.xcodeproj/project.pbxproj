@@ -148,13 +148,6 @@
 			path = ci_scripts;
 			sourceTree = "<group>";
 		};
-		F4B182192A434D8D00F61D23 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F4E86F312A09120C009530D6 = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +159,6 @@
 				F455C63A2A1E3CC0001B6B0E /* Requests.framework */,
 				F455C63E2A1E4589001B6B0E /* Bypass API.app */,
 				F455C6432A1E4593001B6B0E /* Shortcuts.appex */,
-				F4B182192A434D8D00F61D23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
