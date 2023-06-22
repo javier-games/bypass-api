@@ -16,6 +16,10 @@ fi
 
 brew install xmlstarlet
 
-xmlstarlet ed --inplace -u "//EnvironmentVariable[@key='CRYPTO_KEY']/@value" -v "$CRYPTO_KEY" "$CI_PROJECT_FILE_PATH/xcshareddata/xcschemes/Bypass API.xcscheme"
+SCHEME_FILE_PATH="$CI_PROJECT_FILE_PATH/xcshareddata/xcschemes/Bypass API.xcscheme"
 
-echo "CRYPTO_KEY updated successfully in $CI_PROJECT_FILE_PATH/xcshareddata/xcschemes/Bypass API.xcscheme"
+xmlstarlet ed --inplace -u "//EnvironmentVariable[@key='CRYPTO_KEY']/@value" -v "$CRYPTO_KEY" "$SCHEME_FILE_PATH"
+
+echo $(cat $SCHEME_FILE_PATH)
+
+echo "CRYPTO_KEY updated successfully in $SCHEME_FILE_PATH"
