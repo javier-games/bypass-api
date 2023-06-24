@@ -1,6 +1,5 @@
 //
-//  Shortcuts.swift
-//  Shortcuts
+//  Shortcurts.swift
 //
 //  Created by Javier García on 2023/05/08.
 //
@@ -20,14 +19,18 @@ struct ServiceResponse: IntentResult {
 
 struct SendRequest: AppIntent {
     
-    static var title: LocalizedStringResource = "SendRequest"
+    static var title: LocalizedStringResource = "Send Request"
     static var description: IntentDescription? = "Makes a call to the selected service."
+    static var parameterSummary: some ParameterSummary{
+        Summary("Send \(\.$selectedService) request")
+    }
     
     @Parameter(title: "Service")
     var selectedService: String
     
     var requestsData = RequestsData()
     
+    @MainActor
     func perform() async throws -> some IntentResult  {
     
         guard let request = requestsData.requests.first(where: { $0.name == selectedService }) else {
@@ -42,5 +45,132 @@ struct SendRequest: AppIntent {
         } catch {
             return .result(value: response)
         }
+    }
+}
+
+struct SendRequestWithVariable: AppIntent {
+    
+    static var title: LocalizedStringResource = "Send Request with Variable"
+    static var description: IntentDescription? = "Makes a call to the selected service with variables."
+    static var parameterSummary: some ParameterSummary{
+        Summary("Send \(\.$selectedService) request with \(\.$variableKey) as \(\.$variableValue)")
+    }
+    
+    @Parameter(title: "Service")
+    var selectedService: String
+    
+    @Parameter(title: "Variable Key")
+    var variableKey: String
+    
+    @Parameter(title: "Variable Value")
+    var variableValue: String
+    
+    var requestsData = RequestsData()
+    
+    @MainActor
+    func perform() async throws -> some IntentResult  {
+    
+        guard let request = requestsData.requests.first(where: { $0.name == selectedService }) else {
+            return .result(value: "\(selectedService) service not found.")
+        }
+        
+        let requestWithParams = replaceWithVariables(from: request, variableKey: variableKey, variableValue: variableValue)
+        
+        var response : String
+        response = "Fail on send request."
+        do {
+            response = try await requestWithParams.sendRequest()
+            return .result(value: response)
+        } catch {
+            return .result(value: response)
+        }
+    }
+}
+
+struct SendEncryptedRequest: AppIntent {
+    
+    static var title: LocalizedStringResource = "Send Encrypted Request"
+    static var description: IntentDescription? = "Sends a request with an ecrypted data. Usefull to share requests with tokens."
+    
+    static var parameterSummary: some ParameterSummary{
+        Summary("Send request"){
+            \.$encryptedService
+        }
+    }
+    
+    @Parameter(title: "Encrypted Service")
+    var encryptedService: String
+    
+    func perform() async throws -> some IntentResult  {
+     
+        let request = Request.deserialize(from: encryptedService)
+        var response : String
+        response = "Fail on send request."
+        do {
+            response = try await request!.sendRequest()
+            return .result(value: response)
+        } catch {
+            return .result(value: response)
+        }
+    }
+}
+
+struct SendEncryptedRequestWithVariable: AppIntent {
+    
+    static var title: LocalizedStringResource = "Send Encrypted Request with Variable"
+    static var description: IntentDescription? = "Sends a request with an ecrypted data. Usefull to share requests with tokens."
+    
+    static var parameterSummary: some ParameterSummary{
+        Summary("Send request with \(\.$variableKey) as \(\.$variableValue)"){
+            \.$encryptedService
+        }
+    }
+    
+    @Parameter(title: "Encrypted Service")
+    var encryptedService: String
+    
+    @Parameter(title: "Variable Key")
+    var variableKey: String
+    
+    @Parameter(title: "Variable Value")
+    var variableValue: String
+    
+    func perform() async throws -> some IntentResult  {
+     
+        let requestWithParams = replaceWithVariables(from: Request.deserialize(from: encryptedService)!, variableKey: variableKey, variableValue: variableValue)
+        var response : String
+        response = "Fail on send request."
+        do {
+            response = try await requestWithParams.sendRequest()
+            return .result(value: response)
+        } catch {
+            return .result(value: response)
+        }
+    }
+}
+
+func replaceWithVariables(from request: Request, variableKey: String, variableValue: String) -> Request {
+    let stringToLook = "{{\(variableKey)}}"
+    var newRequest = request
+    
+    if variableKey.isEmpty {
+        return newRequest
+    }
+    
+    newRequest.url = replaceSubstring(input: request.url, substring: stringToLook, replacement: variableValue)
+    
+    if request.bodyType == .JSON{
+        newRequest.rawBody = replaceSubstring(input: request.rawBody, substring: stringToLook, replacement: variableValue)
+    }
+    
+    return newRequest
+}
+
+func replaceSubstring(input: String, substring: String, replacement: String) -> String {
+    if input.contains(substring) {
+        let replaced = input.replacingOccurrences(of: substring, with: replacement)
+        return replaced
+    } else {
+        return input
     }
 }

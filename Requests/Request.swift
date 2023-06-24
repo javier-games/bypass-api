@@ -1,42 +1,11 @@
 //
-//  requests.swift
+//  Request.swift
 //  Requests
 //
-//  Created by Javier García on 2023/05/24.
+//  Created by Francisco Javier García Gutiérrez on 2023/06/24.
 //
 
 import Foundation
-
-public enum HTTPMethod:String, CaseIterable, Identifiable, Codable {
-    case GET = "GET"
-    case POST = "POST"
-    case PUT = "PUT"
-    case DELETE = "DELETE"
-    public var id: String { self.rawValue }
-}
-
-public enum BodyType:String, CaseIterable, Identifiable, Codable {
-    case NONE = "No Body"
-    case FORM_DATA = "Form Data"
-    case JSON = "JSON"
-    public var id: String { self.rawValue }
-}
-
-public struct KeyValuePair: Codable {
-    public var key: String
-    public var value: String
-    
-    public init() {
-        self.key = ""
-        self.value = ""
-    }
-    
-    public init(key: String, value: String){
-        self.key = key
-        self.value = value
-    }
-    
-}
 
 public struct Request: Codable {
     public let id: UUID
@@ -144,46 +113,61 @@ public struct Request: Codable {
             
         }
     }
-}
-
-public class RequestsData: ObservableObject {
     
-    @Published public var requests: [Request] {
-        didSet {
-            saveRequests()
-        }
-    }
-    
-    public init() {
-        let sharedUserDefaults = UserDefaults(suiteName: "group.games.javier.bypass-api")
-        if let savedRequests = sharedUserDefaults?.data(forKey: "SavedRequests") {
-            let decoder = JSONDecoder()
-            if let loadedRequests = try? decoder.decode([Request].self, from: savedRequests) {
-                self.requests = loadedRequests
-            } else {
-                self.requests = []
-            }
-        } else {
-            self.requests = []
-        }
-    }
-    
-    func saveRequests() {
-        let sharedUserDefaults = UserDefaults(suiteName: "group.games.javier.bypass-api")
+    public func serialize() -> String? {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(requests) {
-            sharedUserDefaults?.set(encoded, forKey: "SavedRequests")
+        encoder.outputFormatting = .prettyPrinted
+        
+        do {
+            let data = try encoder.encode(self)
+            
+            // Generate encryption key
+            guard let keyData = Request.getEncryptionKey() else {
+                print("Failed to generate encryption key.")
+                return nil
+            }
+            
+            // Encrypt
+            guard let encryptedData = AesEncryption.aesEncrypt(data: data, keyData: keyData) else {
+                print("Failed to encrypt data.")
+                return nil
+            }
+            
+            return encryptedData.base64EncodedString()
+        } catch {
+            print("Failed to encode or encrypt Request: \(error)")
+            return nil
         }
     }
     
-    func loadRequests() -> [Request] {
-        let sharedUserDefaults = UserDefaults(suiteName: "group.games.javier.bypass-api")
-        if let savedRequests = sharedUserDefaults?.data(forKey: "SavedRequests") {
-            let decoder = JSONDecoder()
-            if let loadedRequests = try? decoder.decode([Request].self, from: savedRequests) {
-                return loadedRequests
-            }
+    public static func deserialize(from string: String) -> Request? {
+        guard let keyData = Request.getEncryptionKey() else {
+            print("Failed to generate encryption key.")
+            return nil
         }
-        return []
+        
+        guard let encryptedData = Data(base64Encoded: string),
+              let decryptedData = AesEncryption.aesDecrypt(data: encryptedData, keyData: keyData) else {
+            print("Failed to decrypt data.")
+            return nil
+        }
+        
+        let decoder = JSONDecoder()
+        if let request = try? decoder.decode(Request.self, from: decryptedData) {
+            return request
+        } else {
+            return nil
+        }
+    }
+    
+    private static func getEncryptionKey() -> Data?{
+        
+        // Generate encryption key
+        guard let keyData = AesEncryption.generateEncryptionKey(password: EncryptionData.password, salt: EncryptionData.salt) else {
+            print("Failed to generate encryption key.")
+            return nil
+        }
+        
+        return keyData
     }
 }
