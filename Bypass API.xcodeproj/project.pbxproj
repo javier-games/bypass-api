@@ -8,7 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		F41E28FE2A209BF60004E114 /* Shortcuts.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = F455C6432A1E4593001B6B0E /* Shortcuts.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F455C62E2A1E36E9001B6B0E /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455C62D2A1E36E9001B6B0E /* Requests.swift */; };
+		F455BAFF2A46A81E00FDD842 /* Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = F455BAFE2A46A81E00FDD842 /* Bridging-Header.h */; };
+		F455BB012A46ABA700FDD842 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455BB002A46ABA700FDD842 /* Request.swift */; };
+		F455BB032A46ABD100FDD842 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455BB022A46ABD100FDD842 /* RequestData.swift */; };
+		F455BB052A46AC2D00FDD842 /* AesEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455BB042A46AC2D00FDD842 /* AesEncryption.swift */; };
+		F455BB072A46ACB400FDD842 /* KeyValuePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455BB062A46ACB400FDD842 /* KeyValuePair.swift */; };
+		F455BB092A46B3A200FDD842 /* EncryptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455BB082A46B3A200FDD842 /* EncryptionData.swift */; };
+		F455C62E2A1E36E9001B6B0E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455C62D2A1E36E9001B6B0E /* Enums.swift */; };
 		F455C63C2A1E4589001B6B0E /* Requests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; platformFilter = ios; };
 		F455C63D2A1E4589001B6B0E /* Requests.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F455C63A2A1E3CC0001B6B0E /* Requests.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F4ACAF702A2220CA008FA555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */; };
@@ -77,12 +83,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F455C62D2A1E36E9001B6B0E /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		F455BAFE2A46A81E00FDD842 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		F455BB002A46ABA700FDD842 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		F455BB022A46ABD100FDD842 /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
+		F455BB042A46AC2D00FDD842 /* AesEncryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesEncryption.swift; sourceTree = "<group>"; };
+		F455BB062A46ACB400FDD842 /* KeyValuePair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValuePair.swift; sourceTree = "<group>"; };
+		F455BB082A46B3A200FDD842 /* EncryptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionData.swift; sourceTree = "<group>"; };
+		F455C62D2A1E36E9001B6B0E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		F455C63A2A1E3CC0001B6B0E /* Requests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Requests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F455C63E2A1E4589001B6B0E /* Bypass API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bypass API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F455C6432A1E4593001B6B0E /* Shortcuts.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = Shortcuts.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F455C6462A1E479A001B6B0E /* Bypass-API-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bypass-API-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F45646C02A2F0576002E94F5 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
+		F480BC782A43620500C3AFE6 /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
 		F487D5DD2A2DE7770035CC35 /* Bypass API.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bypass API.entitlements"; sourceTree = "<group>"; };
 		F487D5DE2A2DE7830035CC35 /* Shortcuts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shortcuts.entitlements; sourceTree = "<group>"; };
 		F4ACAF6F2A2220CA008FA555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AppIcons/Assets.xcassets; sourceTree = "<group>"; };
@@ -122,7 +135,13 @@
 		F455C6272A1E36CA001B6B0E /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				F455C62D2A1E36E9001B6B0E /* Requests.swift */,
+				F455BAFE2A46A81E00FDD842 /* Bridging-Header.h */,
+				F455C62D2A1E36E9001B6B0E /* Enums.swift */,
+				F455BB002A46ABA700FDD842 /* Request.swift */,
+				F455BB022A46ABD100FDD842 /* RequestData.swift */,
+				F455BB042A46AC2D00FDD842 /* AesEncryption.swift */,
+				F455BB062A46ACB400FDD842 /* KeyValuePair.swift */,
+				F455BB082A46B3A200FDD842 /* EncryptionData.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -135,9 +154,18 @@
 			path = TestFlight;
 			sourceTree = "<group>";
 		};
+		F480BC772A4361D900C3AFE6 /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				F480BC782A43620500C3AFE6 /* ci_post_clone.sh */,
+			);
+			path = ci_scripts;
+			sourceTree = "<group>";
+		};
 		F4E86F312A09120C009530D6 = {
 			isa = PBXGroup;
 			children = (
+				F480BC772A4361D900C3AFE6 /* ci_scripts */,
 				F45646BF2A2F04EE002E94F5 /* TestFlight */,
 				F4E86F3C2A09120C009530D6 /* Bypass API */,
 				F4E86F9B2A0924E4009530D6 /* Shortcuts */,
@@ -178,6 +206,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F455BAFF2A46A81E00FDD842 /* Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +227,8 @@
 			dependencies = (
 			);
 			name = Requests;
+			packageProductDependencies = (
+			);
 			productName = Requests;
 			productReference = F455C63A2A1E3CC0001B6B0E /* Requests.framework */;
 			productType = "com.apple.product-type.framework";
@@ -220,6 +251,8 @@
 				F41E29002A209BF60004E114 /* PBXTargetDependency */,
 			);
 			name = "Bypass API";
+			packageProductDependencies = (
+			);
 			productName = "Bypass API";
 			productReference = F455C63E2A1E4589001B6B0E /* Bypass API.app */;
 			productType = "com.apple.product-type.application";
@@ -238,6 +271,8 @@
 				F455C6452A1E4593001B6B0E /* PBXTargetDependency */,
 			);
 			name = Shortcuts;
+			packageProductDependencies = (
+			);
 			productName = Shortcuts;
 			productReference = F455C6432A1E4593001B6B0E /* Shortcuts.appex */;
 			productType = "com.apple.product-type.extensionkit-extension";
@@ -254,7 +289,7 @@
 				TargetAttributes = {
 					F455C6252A1E36CA001B6B0E = {
 						CreatedOnToolsVersion = 14.3;
-						LastSwiftMigration = 1430;
+						LastSwiftMigration = 1420;
 					};
 					F4E86F392A09120C009530D6 = {
 						CreatedOnToolsVersion = 14.3;
@@ -273,6 +308,8 @@
 				Base,
 			);
 			mainGroup = F4E86F312A09120C009530D6;
+			packageReferences = (
+			);
 			productRefGroup = F4E86F312A09120C009530D6;
 			projectDirPath = "";
 			projectRoot = "";
@@ -316,7 +353,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F455C62E2A1E36E9001B6B0E /* Requests.swift in Sources */,
+				F455BB032A46ABD100FDD842 /* RequestData.swift in Sources */,
+				F455BB072A46ACB400FDD842 /* KeyValuePair.swift in Sources */,
+				F455C62E2A1E36E9001B6B0E /* Enums.swift in Sources */,
+				F455BB052A46AC2D00FDD842 /* AesEncryption.swift in Sources */,
+				F455BB092A46B3A200FDD842 /* EncryptionData.swift in Sources */,
+				F455BB012A46ABA700FDD842 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +436,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Requests/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -430,6 +473,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Requests/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -577,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -615,7 +659,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -644,7 +688,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api.shortcut";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -671,7 +715,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "games.javier.bypass-api.shortcut";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
