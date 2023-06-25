@@ -1,3 +1,10 @@
+## 1.3.0 (2023-06-25)
+
+
+### Added
+
+* Escaping methods for URLs and JSON texts. 53aa519
+
 ## 1.2.0 (2023-06-24)
 
 
