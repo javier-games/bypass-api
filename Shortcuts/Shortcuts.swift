@@ -149,6 +149,23 @@ struct SendEncryptedRequestWithVariable: AppIntent {
     }
 }
 
+struct UnescapeJSON: AppIntent {
+    
+    static var title: LocalizedStringResource = "Unescape Value"
+    static var description: IntentDescription? = "Unescapes the input text."
+    
+    static var parameterSummary: some ParameterSummary{
+        Summary("Unescape \(\.$textToUnescape)")
+    }
+    
+    @Parameter(title: "Text")
+    var textToUnescape: String
+    
+    func perform() async throws -> some IntentResult  {
+        return .result(value: jsonUnescape(json: textToUnescape))
+    }
+}
+
 func replaceWithVariables(from request: Request, variableKey: String, variableValue: String) -> Request {
     let stringToLook = "{{\(variableKey)}}"
     var newRequest = request
@@ -157,20 +174,55 @@ func replaceWithVariables(from request: Request, variableKey: String, variableVa
         return newRequest
     }
     
-    newRequest.url = replaceSubstring(input: request.url, substring: stringToLook, replacement: variableValue)
+    newRequest.url = replaceUrlSubstring(input: request.url, substring: stringToLook, replacement: variableValue)
     
     if request.bodyType == .JSON{
-        newRequest.rawBody = replaceSubstring(input: request.rawBody, substring: stringToLook, replacement: variableValue)
+        newRequest.rawBody = replaceJsonSubstring(input: request.rawBody, substring: stringToLook, replacement: variableValue)
     }
     
     return newRequest
 }
 
-func replaceSubstring(input: String, substring: String, replacement: String) -> String {
+func replaceUrlSubstring(input: String, substring: String, replacement: String) -> String {
     if input.contains(substring) {
-        let replaced = input.replacingOccurrences(of: substring, with: replacement)
+        let replaced = input.replacingOccurrences(of: substring, with: urlEscape(string: replacement)!)
         return replaced
     } else {
         return input
     }
+}
+
+func urlEscape(string: String) -> String? {
+    return string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+}
+
+func urlUnescape(string: String) -> String? {
+    return string.removingPercentEncoding
+}
+
+func replaceJsonSubstring(input: String, substring: String, replacement: String) -> String {
+    if input.contains(substring) {
+        let replaced = input.replacingOccurrences(of: substring, with: jsonEscape(json: replacement))
+        return replaced
+    } else {
+        return input
+    }
+}
+
+func jsonEscape(json: String) -> String {
+    var escapedJson = json.replacingOccurrences(of: "\\", with: "\\\\")
+    escapedJson = escapedJson.replacingOccurrences(of: "\"", with: "\\\"")
+    escapedJson = escapedJson.replacingOccurrences(of: "\n", with: "\\n")
+    escapedJson = escapedJson.replacingOccurrences(of: "\r", with: "\\r")
+    escapedJson = escapedJson.replacingOccurrences(of: "\t", with: "\\t")
+    return escapedJson
+}
+
+func jsonUnescape(json: String) -> String {
+    var unescapedJson = json.replacingOccurrences(of: "\\\"", with: "\"")
+    unescapedJson = unescapedJson.replacingOccurrences(of: "\\n", with: "\n")
+    unescapedJson = unescapedJson.replacingOccurrences(of: "\\r", with: "\r")
+    unescapedJson = unescapedJson.replacingOccurrences(of: "\\t", with: "\t")
+    unescapedJson = unescapedJson.replacingOccurrences(of: "\\\\", with: "\\")
+    return unescapedJson
 }
