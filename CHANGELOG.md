@@ -1,3 +1,18 @@
+## 1.3.0 (2023-06-25)
+
+
+### Added
+
+* Escaping methods for URLs and JSON texts. 53aa519
+
+## 1.2.0 (2023-06-24)
+
+
+### Added
+
+* Encryption and Serialization methods for Requests. cb5dda2
+* Shortcuts with variables. f226761
+
 ## 1.1.0 (2023-06-17)
 
 

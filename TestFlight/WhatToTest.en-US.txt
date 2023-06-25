@@ -1,13 +1,8 @@
-## 1.1.0 (2023-06-17)
+## 1.3.0 (2023-06-25)
 
 
 ### Added
 
-* Send request from app. 1c326fe
-
-
-### Fixed
-
-* Delete elements from dictionaries. 552fae0
+* Escaping methods for URLs and JSON texts. 53aa519
 
 
