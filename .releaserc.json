@@ -1,10 +1,7 @@
 {
   "tagFormat": "${version}",
   "branches": [
-    "main",
-    "develop",
-    "release/*",
-    "hotfix/*"
+    "main"
   ],
   "plugins": [
     [
