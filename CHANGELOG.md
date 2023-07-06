@@ -1,3 +1,10 @@
+## 1.4.0 (2023-07-06)
+
+
+### Added
+
+* App intent for input JSON body. 8abb4ca
+
 ## 1.3.0 (2023-06-25)
 
 

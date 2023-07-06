@@ -1,8 +1,8 @@
-## 1.3.0 (2023-06-25)
+## 1.4.0 (2023-07-06)
 
 
 ### Added
 
-* Escaping methods for URLs and JSON texts. 53aa519
+* App intent for input JSON body. 8abb4ca
 
 
