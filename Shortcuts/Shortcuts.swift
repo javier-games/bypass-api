@@ -87,6 +87,42 @@ struct SendRequestWithVariable: AppIntent {
     }
 }
 
+struct SendRequestWithJsonBody: AppIntent {
+    
+    static var title: LocalizedStringResource = "Send Request with Json Body"
+    static var description: IntentDescription? = "Makes a call to the selected service with the given JSONbody."
+    static var parameterSummary: some ParameterSummary{
+        Summary("Send \(\.$selectedService) request with \(\.$jsonBody)")
+    }
+    
+    @Parameter(title: "Service")
+    var selectedService: String
+    
+    @Parameter(title: "Body")
+    var jsonBody: String
+    
+    var requestsData = RequestsData()
+    
+    @MainActor
+    func perform() async throws -> some IntentResult  {
+    
+        guard let request = requestsData.requests.first(where: { $0.name == selectedService }) else {
+            return .result(value: "\(selectedService) service not found.")
+        }
+        
+        var newRequest = replaceJsonBody(from: request, body: jsonBody)
+        
+        var response : String
+        response = "Fail on send request."
+        do {
+            response = try await newRequest.sendRequest()
+            return .result(value: response)
+        } catch {
+            return .result(value: response)
+        }
+    }
+}
+
 struct SendEncryptedRequest: AppIntent {
     
     static var title: LocalizedStringResource = "Send Encrypted Request"
@@ -149,6 +185,37 @@ struct SendEncryptedRequestWithVariable: AppIntent {
     }
 }
 
+struct SendEncryptedRequestWithJsonBody: AppIntent {
+    
+    static var title: LocalizedStringResource = "Send Encrypted Request with the given JSON body."
+    static var description: IntentDescription? = "Sends a request with an ecrypted data. Usefull to share requests with tokens."
+    
+    static var parameterSummary: some ParameterSummary{
+        Summary("Send request with \(\.$jsonBody)"){
+            \.$encryptedService
+        }
+    }
+    
+    @Parameter(title: "Encrypted Service")
+    var encryptedService: String
+    
+    @Parameter(title: "Body")
+    var jsonBody: String
+    
+    func perform() async throws -> some IntentResult  {
+     
+        let request = replaceJsonBody(from: Request.deserialize(from: encryptedService)!, body: jsonBody)
+        var response : String
+        response = "Fail on send request."
+        do {
+            response = try await request.sendRequest()
+            return .result(value: response)
+        } catch {
+            return .result(value: response)
+        }
+    }
+}
+
 struct UnescapeJSON: AppIntent {
     
     static var title: LocalizedStringResource = "Unescape Value"
@@ -164,6 +231,15 @@ struct UnescapeJSON: AppIntent {
     func perform() async throws -> some IntentResult  {
         return .result(value: jsonUnescape(json: textToUnescape))
     }
+}
+
+func replaceJsonBody(from request: Request, body: String) -> Request{
+    var newRequest = request
+    
+    newRequest.bodyType = .JSON
+    newRequest.rawBody = body
+    
+    return newRequest
 }
 
 func replaceWithVariables(from request: Request, variableKey: String, variableValue: String) -> Request {
